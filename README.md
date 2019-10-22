@@ -1,1 +1,9 @@
-# esm206-lab4-part2-jp
+# My awesome ReadMe
+
+- some
+- bullet
+- points
+
+and oter awesome information
+
+# yah
