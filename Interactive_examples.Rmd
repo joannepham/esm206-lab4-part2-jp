@@ -6,10 +6,45 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE) # If you want a global setting that doesn't show any code except for the plots, then just do echo = FALSE up here
 ```
 
 Here, we will practice some interactive graphs and tables using built-in datasets and r packages.
 
 - Interactive plots: {plotly}
 - Interactive tables: {DT}
+
+remember that if you want to select all of the files to commit, then just press Ctrl + A + space after clicking on just one line 
+
+```{r, include= FALSE}
+# Attach packages
+
+library(tidyverse)
+library(plotly)
+library(DT)
+
+```
+
+### A. Interactive graph of iris dimensions
+
+Using Edgar Anderson's famous 'iris' dataset
+
+```{r, echo= FALSE}
+
+iris_graph <- ggplot(data = iris, aes(x = Petal.Width, y = Petal.Length)) +
+ geom_point(aes(size = Sepal.Width, 
+                  color = Species), 
+              alpha = 0.5) +
+   theme_minimal() +
+  labs(x = "Petal Width (cm)",
+        y = "Petal Length (cm)",
+        title = "My iris graph")
+iris_graph
+
+# to put an entire code chunk as comment, highlight and then press Cntrl + Shift + C
+
+# if you want r to stop evaluating, then put echo=FALSE and then eval = False
+
+ggplotly(iris_graph)
+```
+
